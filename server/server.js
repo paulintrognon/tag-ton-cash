@@ -4,6 +4,7 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
+const logger = require('./services/logger.js');
 
 const app = express();
 
@@ -25,5 +26,5 @@ const server = http.createServer(app);
 
 server.listen(port, () => {
   const address = server.address();
-  console.log(`API up and running on ${address.address}:${address.port}`);
+  logger.info(`API up and running on ${address.address}:${address.port}`);
 });
